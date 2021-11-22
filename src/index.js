@@ -1,17 +1,14 @@
+//1. NECESITAMOS A REACT
 import React from 'react';
+
+//2. NECESITAMOS A ReactDOM
 import ReactDOM from 'react-dom';
-import './index.css';
+
+//3. NECESITAMOS UN COMPONENTE PARA MOSTRAR
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+//PARA IMPORTAR CSS
+import "./estilos.css";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+//4. NECESITAMOS MOSTRAR EL COMPONENTE
+ReactDOM.render(<App/>, document.getElementById('root'));
