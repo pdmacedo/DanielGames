@@ -1,4 +1,5 @@
 import Carro from "../Carro";
+import ItemListContainer from "../ItemListContainer";
 
 const Nav = () =>{
 
@@ -12,7 +13,7 @@ const Nav = () =>{
             <li class="icon" id="carro"><a href="#"><Carro/></a></li>
         </ul>
 
-        <h3>¡Disfruta de nuestro contenido y unete a la comunidad Gamer!</h3>
+        <h3><ItemListContainer/></h3>
     </>
     );
 }
