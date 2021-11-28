@@ -1,9 +1,14 @@
+import ItemCount from "./ItemCount";
+
 function ItemListComponent(saludo) {
 
     saludo = "Unete a la comunidad Gamer!"
 
     return(
-        <h3>{saludo}</h3>
+        <div>
+            <h3>{saludo}</h3>
+            <ItemCount/>
+        </div>
     );
 
 }

@@ -9,7 +9,6 @@ const App = () => {
     <>
       <Header/>
       <Nav/>
-      <ItemCount/>
       <Footer/>
     </>);
 }
