@@ -2,36 +2,41 @@ import {useState} from "react";
 
 const ItemCount = () => {
 
+    const stock=10; 
+    const initial=1;
+    
     const [contador, setContador] = useState(0);
   
-    const aumentaContador = () => {
-      setContador(contador + 1);
+    const aumentaContador = () => 
+    {
+      console.log(contador, stock, initial);
+      if(contador>=stock)
+      {
+        console.log("Stock insuficiente para la cantidad.");
+      }
+      else
+      {
+        setContador(contador + 1);
+      }
     }
 
-    const reduceContador = () => {
+    const reduceContador = () => 
+    {
+      if(contador<initial)
+      {
+        console.log("Debe ser valor positivo.");
+      }
+
+      else
+      {
         setContador(contador - 1);
       }
+    }
 
-    const agregarCarro = (onAdd, stock=10, initial=1) => {
-        
-        
-
-        if(contador>stock)
-        {
-            console.log("No es posible agregar más de nuestra cantidad disponible.");
-        }
-
-        else if(contador<initial)
-        {
-            console.log(initial);
-            console.log("Tiene que adicionar algún elemento para agregar.");
-        }
-
-        else
-        {
-            console.log("Elemento agregado con exito.");
-        }
-      }
+    const agregarCarro = () => 
+    {
+      console.log("Elemento agregado con exito.");
+    }
   
     return (
       <>
