@@ -4,12 +4,11 @@ const ItemCount = () => {
 
     const stock=10; 
     const initial=1;
-    
+
     const [contador, setContador] = useState(0);
   
     const aumentaContador = () => 
     {
-      console.log(contador, stock, initial);
       if(contador>=stock)
       {
         console.log("Stock insuficiente para la cantidad.");
@@ -39,12 +38,13 @@ const ItemCount = () => {
     }
   
     return (
-      <>
+      <div id="contador">
         <p>Cuantos juegos deseas comprar?: {contador}</p>
         <button onClick={aumentaContador}>+</button>
         <button onClick={reduceContador}>-</button>
         <button onClick={agregarCarro}>Agregar al carro</button>
-      </>);
+      </div>
+      );
   }
   
   export default ItemCount;

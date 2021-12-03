@@ -10,5 +10,7 @@ import App from './App';
 //PARA IMPORTAR CSS
 import "./estilos.css";
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 //4. NECESITAMOS MOSTRAR EL COMPONENTE
 ReactDOM.render(<App/>, document.getElementById('root'));

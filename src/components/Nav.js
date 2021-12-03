@@ -13,7 +13,7 @@ const Nav = () =>{
             <li class="icon" id="carro"><a href="#"><Carro/></a></li>
         </ul>
 
-        <h3><ItemListContainer/></h3>
+        <div><ItemListContainer/></div>
     </>
     );
 }

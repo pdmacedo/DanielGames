@@ -75,3 +75,10 @@ footer {
 h3{
   text-align: center;
 }
+
+/*CONTADOR*/
+#contador{
+  margin-top: 20px;
+  text-align: center;
+}
+/*FIN DEL CONTADOR*/
