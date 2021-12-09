@@ -1,5 +1,6 @@
 body{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(226, 221, 221)!important;
 }
 
 #main-header {
@@ -8,6 +9,11 @@ body{
   justify-content: space-between;
   padding: 0.5rem 1rem;
   top: 0;
+}
+
+.margenArriba
+{
+  margin-top: 30px;
 }
 
 /*NAV BAR*/
@@ -60,7 +66,8 @@ li#carro a:hover {
 /*FOOTER*/
 footer {
   background-color: rgb(27, 116, 116);
-  position: absolute;
+  margin-top: 55px;
+  position: fixed;
   bottom: 0;
   width: 100%;
   height: 40px;
@@ -82,3 +89,76 @@ h3{
   text-align: center;
 }
 /*FIN DEL CONTADOR*/
+
+/*CARDS DE LOS JUEGOS EN EL INDEX*/
+.margenTopCards
+{
+  margin-top: 25px;
+}
+
+.centrado
+{
+  text-align: center;
+}
+
+.imgItem
+{
+  display:block;
+  margin:auto;
+  height:250px;
+  width:350px;
+}
+
+.btn {
+  border: none;
+  margin:auto;
+  display: block !important;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btnComprar {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.info {
+  color: rgb(27, 116, 116);
+}
+
+.info:hover {
+  background: rgb(27, 116, 116);
+  color: white;
+}
+
+.sinEfecto
+{
+  color: black;
+  text-decoration: none;
+}
+
+.sinEfecto:hover
+{
+  color: black;
+}
+/*FIN DE LOS CARDS DE LOS JUEGOS EN EL INDEX*/
+
+/*DETAILS*/
+
+.imgDetails
+{
+  height:350px;
+  width:550px;
+}
+
+.fuente
+{
+  font-size: 20px;
+}
+
+/*FIN DE DETAILS*/

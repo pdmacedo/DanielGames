@@ -1,5 +1,4 @@
-import Carro from "../Carro";
-import ItemListContainer from "../ItemListContainer";
+import Carro from "./Carro";
 
 const Nav = () =>{
 
@@ -12,8 +11,6 @@ const Nav = () =>{
             <li><a href="#">Xbox</a></li>
             <li class="icon" id="carro"><a href="#"><Carro/></a></li>
         </ul>
-
-        <div><ItemListContainer/></div>
     </>
     );
 }
