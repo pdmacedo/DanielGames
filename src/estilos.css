@@ -51,10 +51,12 @@ li.icon
 }
 
 li a:hover {
+  color: black;
   background-color: rgb(54, 83, 161);
 }
 
 li#carro a:hover {
+  color: black;
   background-color:rgb(54, 83, 161);
 }
 

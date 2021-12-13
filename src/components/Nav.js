@@ -1,15 +1,18 @@
 import Carro from "./Carro";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Nav = () =>{
 
     return(
     <>
         <ul>
-            <li><a class="active">JUEGOS</a></li>
-            <li><a href="#">PS5</a></li>
-            <li><a href="#">PS4</a></li>
-            <li><a href="#">Xbox</a></li>
-            <li class="icon" id="carro"><a href="#"><Carro/></a></li>
+            <li><Link class="active sinEfecto" to={"/"}>JUEGOS</Link></li>
+            <li><Link to={"/plataforma/187"}>PS5</Link></li>
+            <li><Link to={"/plataforma/18"}>PS4</Link></li>
+            <li><Link to={"/plataforma/1"}>Xbox One</Link></li>
+            <li><Link to={"/plataforma/4"}>PC</Link></li>
+            <li class="icon" id="carro"><Link to={"/"}><Carro/></Link></li>
         </ul>
     </>
     );

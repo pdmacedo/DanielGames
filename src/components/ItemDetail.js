@@ -22,9 +22,9 @@ const ItemDetails = (juego) => {
 
     const getConsola = () =>
     {
-        if(Array.isArray(juego.juego.parent_platforms)&&(juego.juego.parent_platforms.length))
+        if(Array.isArray(juego.juego.platforms)&&(juego.juego.platforms.length))
         {
-            return juego.juego.parent_platforms.map(item => item.name).join(", ");
+            return juego.juego.platforms.map(item => item.name).join(", ");
         }
     }
 

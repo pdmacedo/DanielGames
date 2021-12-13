@@ -3,6 +3,9 @@ import Item from "./Item"
 
 const ItemList = ({productos, arrayJuegos}) =>
 {
+
+    console.log(productos);
+
     return(
             <div className="container">
                 <div className="row">
