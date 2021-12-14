@@ -3,7 +3,6 @@ import Item from "./Item"
 
 const ItemList = ({productos, arrayJuegos}) =>
 {
-
     console.log(productos);
 
     return(

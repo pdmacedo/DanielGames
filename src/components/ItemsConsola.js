@@ -27,9 +27,9 @@ const ItemsConsola = () => {
     return(
         <>
             {
-                consolas.results.length ?
+                consolas.length ?
             
-                <ItemList productos={consolas.results}></ItemList>
+                <ItemList productos={consolas}></ItemList>
 
                 :
 
