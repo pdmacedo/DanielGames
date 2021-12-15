@@ -17,7 +17,6 @@ const ItemListContainer = (saludo) => {
         .then(response => response.json())
         .then(data =>{
             setProductos(data.results);
-            console.log(data.results);
         })
         .catch(e => console.log(e));
         },[])
@@ -27,7 +26,7 @@ const ItemListContainer = (saludo) => {
         return(
             <div>
                 <h3>{saludo}</h3>
-                <ItemList productos={productos} arrayJuegos="Hola"></ItemList>
+                <ItemList productos={productos}></ItemList>
                 <ItemCount/>
             </div>
         );

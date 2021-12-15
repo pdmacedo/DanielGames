@@ -1,10 +1,8 @@
 import React from "react";
 import Item from "./Item"
 
-const ItemList = ({productos, arrayJuegos}) =>
+const ItemList = ({productos}) =>
 {
-    console.log(productos);
-
     return(
             <div className="container">
                 <div className="row">

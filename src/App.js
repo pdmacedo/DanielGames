@@ -17,7 +17,10 @@ const App = () => {
 
         <Route path="/" element={<ItemListContainer/>}/>
         <Route path="/juego/:id" element={<ItemDetailContainer/>}/>
-        <Route path="/plataforma/:id" element={<ItemsConsola/>}/>
+        <Route path="/plataforma/ps5/:id" element={<ItemsConsola/>}/>
+        <Route path="/plataforma/ps4/:id" element={<ItemsConsola/>}/>
+        <Route path="/plataforma/xboxone/:id" element={<ItemsConsola/>}/>
+        <Route path="/plataforma/pc/:id" element={<ItemsConsola/>}/>
 
       </Routes>
 

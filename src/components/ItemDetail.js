@@ -20,14 +20,6 @@ const ItemDetails = (juego) => {
         }
     }
 
-    const getConsola = () =>
-    {
-        if(Array.isArray(juego.juego.platforms)&&(juego.juego.platforms.length))
-        {
-            return juego.juego.platforms.map(item => item.name).join(", ");
-        }
-    }
-
     return(
         <div className="container">
             <div className="row">
