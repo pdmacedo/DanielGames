@@ -1,8 +1,8 @@
 import {useState} from "react";
 
-const ItemCount = () => {
+const ItemCount = ({stock}) => {
 
-    const stock=10; 
+    //const stock=10; 
     const initial=1;
 
     const [contador, setContador] = useState(0);
@@ -34,15 +34,23 @@ const ItemCount = () => {
 
     const agregarCarro = () => 
     {
-      console.log("Elemento agregado con exito.");
+      if(contador >= 1 && contador<= stock)
+      {
+        console.log("Elemento agregado con exito.");
+      }
+
+      else
+      {
+        console.log("Selecciona un elemento para agregar.");
+      }
     }
   
     return (
       <div id="contador">
-        <p>Cuantos juegos deseas comprar?: {contador}</p>
-        <button onClick={aumentaContador}>+</button>
-        <button onClick={reduceContador}>-</button>
-        <button onClick={agregarCarro}>Agregar al carro</button>
+        <p className="fuente">Cantidad: {contador}</p>
+        <button className="btnComprar info" onClick={aumentaContador}>+</button>
+        <button className="btnComprar info" onClick={reduceContador}>-</button>
+        <button className="btnComprar info" onClick={agregarCarro}>Agregar</button>
       </div>
       );
   }

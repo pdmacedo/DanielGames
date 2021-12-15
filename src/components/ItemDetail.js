@@ -1,4 +1,7 @@
 import React from "react";
+import ItemCount from "./ItemCount";
+import {useState} from "react";
+
 
 const ItemDetails = (juego) => {
 
@@ -20,6 +23,8 @@ const ItemDetails = (juego) => {
         }
     }
 
+    const[stock, setStock] = useState(5);
+
     return(
         <div className="container">
             <div className="row">
@@ -35,7 +40,7 @@ const ItemDetails = (juego) => {
                     <p className="fuente">Categoria: {getGenres()}</p>
                     <p className="fuente">Desarrollador: {getDevelopers()}</p>
                     <p className="fuente">Consolas: PS5, Xbox</p>
-                    <button className="btnComprar info">Comprar</button>
+                    <ItemCount stock={stock}/>
                 </div>
             </div>
         </div>
