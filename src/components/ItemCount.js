@@ -1,8 +1,7 @@
 import {useState} from "react";
 
-const ItemCount = ({stock}) => {
+const ItemCount = ({stock, cambiarStock}) => {
 
-    //const stock=10; 
     const initial=1;
 
     const [contador, setContador] = useState(0);
@@ -37,6 +36,7 @@ const ItemCount = ({stock}) => {
       if(contador >= 1 && contador<= stock)
       {
         console.log("Elemento agregado con exito.");
+        cambiarStock(contador);
       }
 
       else

@@ -25,6 +25,11 @@ const ItemDetails = (juego) => {
 
     const[stock, setStock] = useState(5);
 
+    const cambiarStock = (valor) =>
+    {
+        setStock(stock - valor);
+    }
+
     return(
         <div className="container">
             <div className="row">
@@ -40,7 +45,8 @@ const ItemDetails = (juego) => {
                     <p className="fuente">Categoria: {getGenres()}</p>
                     <p className="fuente">Desarrollador: {getDevelopers()}</p>
                     <p className="fuente">Consolas: PS5, Xbox</p>
-                    <ItemCount stock={stock}/>
+                    <p>{stock}</p>
+                    <ItemCount stock={stock} cambiarStock={cambiarStock}/>
                 </div>
             </div>
         </div>

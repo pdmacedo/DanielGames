@@ -21,6 +21,7 @@ const App = () => {
         <Route path="/plataforma/ps4/:id" element={<ItemsConsola/>}/>
         <Route path="/plataforma/xboxone/:id" element={<ItemsConsola/>}/>
         <Route path="/plataforma/pc/:id" element={<ItemsConsola/>}/>
+        <Route path="/cart" element={<ItemListContainer/>}/>
 
       </Routes>
 
