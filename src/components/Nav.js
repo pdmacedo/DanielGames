@@ -12,7 +12,13 @@ const Nav = () =>{
             <li><Link to={"/plataforma/ps4/18"}>PS4</Link></li>
             <li><Link to={"/plataforma/xboxOne/1"}>Xbox One</Link></li>
             <li><Link to={"/plataforma/pc/4"}>PC</Link></li>
-            <li class="icon" id="carro"><Link to={"/cart"}><Carro/></Link></li>
+            <li class="icon" id="carro">
+                <Link to={"/cart"}>
+                    <div>
+                        <span className="material-icons">shopping_cart</span>
+                    </div>
+                </Link>
+            </li>
         </ul>
     </>
     );

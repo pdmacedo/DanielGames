@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Item = ({juego}) =>
 {
     return(
-        <div className="col-md-4 col-sm-12">
+        <div className="col-md-4 col-sm-12 margenBottom">
             <div className="card margenTopCards">
                 <div className="card-body">  
                     <h4 className="card-title centrado">{juego.name}</h4>

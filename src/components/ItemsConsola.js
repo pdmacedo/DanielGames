@@ -32,7 +32,7 @@ const ItemsConsola = () => {
         <>
             {
                 consolas.length ?
-            
+                //titulo de la consola
                 <ItemList productos={consolas}></ItemList>
 
                 :

@@ -45,7 +45,6 @@ const ItemDetails = (juego) => {
                     <p className="fuente">Categoria: {getGenres()}</p>
                     <p className="fuente">Desarrollador: {getDevelopers()}</p>
                     <p className="fuente">Consolas: PS5, Xbox</p>
-                    <p>{stock}</p>
                     <ItemCount stock={stock} cambiarStock={cambiarStock}/>
                 </div>
             </div>

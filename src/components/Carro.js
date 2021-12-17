@@ -1,14 +1,13 @@
 //import { useContext } from "react";
 //import { context } from "./CartContext"
+import React from "react";
 
 const Carro = () =>{
 
     //const resultado = useContext(context)
     
     return(
-        <div>
-            <span className="material-icons">shopping_cart</span>
-        </div>
+        <p>Carro</p>
     );
 }
 

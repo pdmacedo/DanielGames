@@ -1,8 +1,14 @@
 import { render } from "@testing-library/react";
-import { useState, useEffect } from "react"
+import React from "react";
+import { useState, useEffect, useContext } from "react";
 import ItemDetails from "./ItemDetail";
+import CartContext from "../context/CartContext";
+
 
 const ItemDetailContainer = () => {
+
+    //const {carrito, adicionaJuego, eliminarJuego, vaciarCarrito} = useContext(CartContext);
+    console.log(useContext(CartContext))
 
     const id = window.location.pathname.split('/')[2];
 
