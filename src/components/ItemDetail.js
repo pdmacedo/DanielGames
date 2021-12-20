@@ -1,11 +1,18 @@
 import React from "react";
 import ItemCount from "./ItemCount";
-import {useState} from "react";
+import {useState, useContext} from "react";
+import {context} from "../context/CartContext";
 
 
 const ItemDetails = (juego) => {
 
-    console.log(juego);
+    const {adicionaJuego, eliminarJuego, vaciarCarrito} = useContext(context);
+
+    const agregaFinal = (ctd) =>{
+       const cantidadFin = ctd;
+       const producto = {id : juego.juego.id, nombre : juego.juego.name, precio : 50, cantidad : cantidadFin}
+       adicionaJuego(producto);
+    }
 
     const getGenres = () =>
     {
@@ -25,10 +32,6 @@ const ItemDetails = (juego) => {
 
     const[stock, setStock] = useState(5);
 
-    const cambiarStock = (valor) =>
-    {
-        setStock(stock - valor);
-    }
 
     return(
         <div className="container">
@@ -45,7 +48,7 @@ const ItemDetails = (juego) => {
                     <p className="fuente">Categoria: {getGenres()}</p>
                     <p className="fuente">Desarrollador: {getDevelopers()}</p>
                     <p className="fuente">Consolas: PS5, Xbox</p>
-                    <ItemCount stock={stock} cambiarStock={cambiarStock}/>
+                    <ItemCount stock={stock} agregaFinal={agregaFinal}/>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-const ItemCount = ({stock, cambiarStock}) => {
+const ItemCount = ({stock , agregaFinal}) => {
 
     const initial=1;
 
@@ -36,15 +36,17 @@ const ItemCount = ({stock, cambiarStock}) => {
       if(contador >= 1 && contador<= stock)
       {
         console.log("Elemento agregado con exito.");
-        cambiarStock(contador);
       }
 
       else
       {
         console.log("Selecciona un elemento para agregar.");
       }
+
+      const valorFinal = contador;
+      agregaFinal(valorFinal);
     }
-  
+
     return (
       <div id="contador">
         <p className="fuente">Cantidad: {contador}</p>

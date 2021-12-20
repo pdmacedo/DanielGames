@@ -1,14 +1,8 @@
-import { render } from "@testing-library/react";
 import React from "react";
 import { useState, useEffect, useContext } from "react";
 import ItemDetails from "./ItemDetail";
-import CartContext from "../context/CartContext";
-
 
 const ItemDetailContainer = () => {
-
-    //const {carrito, adicionaJuego, eliminarJuego, vaciarCarrito} = useContext(CartContext);
-    console.log(useContext(CartContext))
 
     const id = window.location.pathname.split('/')[2];
 
@@ -22,12 +16,10 @@ const ItemDetailContainer = () => {
         .then(response => response.json())
         .then(data =>
         {
-            console.log(data);
             setGame(data);
         })
         .catch(e => console.log(e));
     },[]);
-
 
     return(
         <>

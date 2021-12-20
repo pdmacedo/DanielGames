@@ -1,24 +1,29 @@
 import React from "react";
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 export const context = createContext();
 const {Provider} = context;
 
 const CartContext = ({children}) => {
 
     const [carrito, setCarrito] = useState([]);
-    //const [cantidad, setCantidad] = useState(0);
-
-    const adicionaJuego = (juego, cantidad) => {
-        setCarrito(juego);
-        //Acá debería recibir desde Detail por el parametro el producto (objeto) para luego 
-        //setearlo en el array del carrito
+    const adicionaJuego = (producto) => {
+       
+        carrito.push(producto);
+        console.log(carrito);
     }
 
+    /*const verCarro = (game) =>
+    {
+        const game = carrito;
+    }*/
+
     const eliminarJuego = (id) => {
+        
     }
 
     const vaciarCarrito = () =>{
         setCarrito([]);
+        console.log(carrito);
         //setCantidad(0);
     }
 
@@ -35,9 +40,8 @@ const CartContext = ({children}) => {
         vaciarCarrito
     }
 
-    const nombre = {name : "Adrian"}
     return(
-        <Provider value={{nombre}}>
+        <Provider value={valorContexto}>
             {children}
         </Provider>
     )
