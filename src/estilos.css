@@ -168,3 +168,25 @@ h3{
 }
 
 /*FIN DE DETAILS*/
+
+/*CARRO DE COMPRAS*/
+.mgDer
+{
+  margin-top: 35px;
+  padding-right: 40px;
+  width: 175px;
+}
+
+.mgDerImg
+{
+  margin-top: 35px;
+  width: 175px;
+  padding-right: 175px;
+}
+
+.imgJuego
+{
+  height: 110px;
+  width: 175px;
+}
+/*FIN CARRO DE COMPRAS*/

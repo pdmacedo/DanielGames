@@ -6,11 +6,11 @@ import {context} from "../context/CartContext";
 
 const ItemDetails = (juego) => {
 
-    const {adicionaJuego, eliminarJuego, vaciarCarrito} = useContext(context);
+    const {adicionaJuego, isInCart} = useContext(context);
 
     const agregaFinal = (ctd) =>{
        const cantidadFin = ctd;
-       const producto = {id : juego.juego.id, nombre : juego.juego.name, precio : 50, cantidad : cantidadFin}
+       const producto = {id : juego.juego.id, nombre : juego.juego.name, precio : 50, cantidad : cantidadFin, img: juego.juego.background_image}
        adicionaJuego(producto);
     }
 

@@ -6,35 +6,74 @@ const {Provider} = context;
 const CartContext = ({children}) => {
 
     const [carrito, setCarrito] = useState([]);
+
     const adicionaJuego = (producto) => {
-       
-        carrito.push(producto);
-        console.log(carrito);
+
+        if(producto.cantidad == 0)
+        {
+            console.log("Adiciona valor válido");
+        }
+        else{
+
+            //isInCart();
+        }
+
+        return carrito;
     }
 
-    /*const verCarro = (game) =>
-    {
-        const game = carrito;
-    }*/
-
     const eliminarJuego = (id) => {
-        
+
+        parseInt(id);
+        console.log(carrito);
+
+        carrito.map(function (item, index)
+        {
+            parseInt(item.cantidad);
+
+            if(id == item.id)
+            {
+                console.log("Entre");
+
+                if(item.cantidad == 1)
+                {
+                    console.log("Entre 2");
+                    carrito.splice(item,1);
+                    console.log(carrito);
+                }
+            
+                else
+                {
+                    console.log("Entre 3");
+                    item.cantidad = item.cantidad - 1;
+                    console.log(item.cantidad);
+                }
+            }
+        })
     }
 
     const vaciarCarrito = () =>{
         setCarrito([]);
         console.log(carrito);
-        //setCantidad(0);
     }
 
-    const isInCart= (id) => {
-        //Podría ser ejecutada en la funcion adicionaJuego dentro de un condicionante, 
-        //a ver si el porducto ya existe 
-    }
+    /*const isInCart= (producto) => {
+        
+        console.log(producto);
+        console.log(carrito);
+
+        if(producto.id == carrito.id)
+            {
+                console.log("Este producto ya está en el carrito.");
+            }
+            else{
+                carrito.push(producto);
+                console.log(carrito);
+                //sessionStorage.setItem('carro', JSON.stringify(carrito));
+            }
+    }*/
 
     const valorContexto = {
         carrito,
-        //cantidad,
         adicionaJuego,
         eliminarJuego,
         vaciarCarrito
