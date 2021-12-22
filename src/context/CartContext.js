@@ -9,16 +9,18 @@ const CartContext = ({children}) => {
 
     const adicionaJuego = (producto) => {
 
-        if(producto.cantidad == 0)
+        isInCart(producto);
+        /*if(producto.cantidad == 0)
         {
             console.log("Adiciona valor válido");
         }
         else{
 
-            //isInCart();
+            carrito.push(producto);
+            console.log(carrito);
         }
 
-        return carrito;
+        return carrito;*/
     }
 
     const eliminarJuego = (id) => {
@@ -56,27 +58,36 @@ const CartContext = ({children}) => {
         console.log(carrito);
     }
 
-    /*const isInCart= (producto) => {
-        
-        console.log(producto);
-        console.log(carrito);
+    const isInCart = (producto) => {
 
-        if(producto.id == carrito.id)
+        let existe = false;
+
+        if(carrito.length != 0)
+        {
+            carrito.map(function (item, index)
             {
-                console.log("Este producto ya está en el carrito.");
-            }
-            else{
-                carrito.push(producto);
-                console.log(carrito);
-                //sessionStorage.setItem('carro', JSON.stringify(carrito));
-            }
-    }*/
+                if(producto.id == item.id)
+                {
+                    existe = true;
+                    console.log("Este producto ya está en el carrito.");
+                }
+            })
+        }
+        
+        if(existe == false)
+        {
+            carrito.push(producto);
+            console.log(carrito);
+            console.log("Entre en el else");
+        }
+    }
 
     const valorContexto = {
         carrito,
         adicionaJuego,
         eliminarJuego,
-        vaciarCarrito
+        vaciarCarrito, 
+        isInCart
     }
 
     return(

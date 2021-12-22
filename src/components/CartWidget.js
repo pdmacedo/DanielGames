@@ -1,6 +1,7 @@
 import React from "react";
-import {useContext} from "react";
+import {useContext, useState, useEffect} from "react";
 import {context} from "../context/CartContext";
+import { Link } from "react-router-dom";
 
 const CartWidget = () =>
 {   
@@ -15,7 +16,16 @@ const CartWidget = () =>
     {
         console.log(id);
         eliminarJuego(id);
+        setProductos(carrito);
     }
+
+    const[productos,setProductos] = useState([]);
+
+    useEffect(()=>
+    {
+        setProductos(carrito);
+
+    },[]);
 
     return(
         
@@ -40,10 +50,6 @@ const CartWidget = () =>
                         </div>
                         )
                     }
-                    else
-                    {
-                        <p>Agregue un producto al carro.</p>
-                    }
                 })()}  
                 {
                     carrito.map(function (n, index)
@@ -66,13 +72,31 @@ const CartWidget = () =>
                         )
                     }) 
                 }
+                {(() => {
+                    if(carrito.length != 0)
+                    {
+                        return(
+                        <div className="col-md-12 col-sm-12 divVaciar">
+                            <button className="btnComprar info" onClick={vaciarCarro}>Vaciar Carro</button>
+                        </div>
+                        )
+                    }
+                    else
+                    {
+                        return(
+                            <div className="centrado2">
+                                <p className="fuente2">Ups! Aún no has agregado nada al carrito</p>
+                                <Link to={"/"}><button className="btnComprar info">Ver juegos</button></Link>
+                            </div>
+                        )
+                    }
+                })()}  
 
-                    <div className="col-md-12 col-sm-12">
-                        <button className="btnComprar info" onClick={vaciarCarro}>Vaciar Carro</button>
-                    </div>
+
             </div>
         </div>
     )
 }
 
 export default CartWidget;
+

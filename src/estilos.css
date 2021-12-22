@@ -189,4 +189,20 @@ h3{
   height: 110px;
   width: 175px;
 }
+
+.centrado2
+{
+  text-align: center;
+}
+
+.divVaciar
+{
+  text-align: center;
+}
+
+.fuente2
+{
+  font-size: 30px;
+}
+
 /*FIN CARRO DE COMPRAS*/
