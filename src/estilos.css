@@ -195,14 +195,26 @@ h3{
   text-align: center;
 }
 
+.tablas
+{
+  text-align: center;
+  margin-left: 50px;
+}
+
 .divVaciar
 {
+  margin-top: 70px;
   text-align: center;
 }
 
 .fuente2
 {
   font-size: 30px;
+}
+
+.topMargen
+{
+  margin-top: 25px;
 }
 
 /*FIN CARRO DE COMPRAS*/

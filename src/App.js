@@ -14,8 +14,8 @@ const App = () => {
   return (
     <>
       <Header/>
-      <Nav/>
 	  <CartContext>
+		<Nav/>
 		<Routes>
 
 			<Route path="/" element={<ItemListContainer/>}/>

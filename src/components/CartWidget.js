@@ -31,12 +31,13 @@ const CartWidget = () =>
         
         <div className="container">
             <div className="row">
+
                 {(() => {
                     if(carrito.length != 0)
                     {
                         return(
-                        <div className="col-md-12 col-sm-12">
-                            <table>
+                        <div className="col-md-12 col-sm-12 topMargen">
+                            <table className="tablas">
                                 <thead>
                                     <tr>
                                         <th className="mgDer fuente" scope="col">Código</th>
@@ -50,13 +51,15 @@ const CartWidget = () =>
                         </div>
                         )
                     }
-                })()}  
+                })()} 
+
+
                 {
                     carrito.map(function (n, index)
                     {
                         return(
-                        <div className="col-md-12 col-sm-12" key={index}>
-                            <table>
+                        <div className="col-md-12 col-sm-12 topMargen" key={index}>
+                            <table className="tablas">
                                 <tbody>
                                     <tr>
                                         <th className="mgDer fuente" scope="row">{n.id}</th>
@@ -72,11 +75,28 @@ const CartWidget = () =>
                         )
                     }) 
                 }
+
                 {(() => {
+
+                    let valorTotal = 0;
+                    let cantidadTotal = 0;
+
                     if(carrito.length != 0)
                     {
+                    carrito.map(function (n, index)
+                        {
+                            cantidadTotal = cantidadTotal + n.cantidad;
+                            console.log(cantidadTotal);
+                            valorTotal = valorTotal + (n.precio * n.cantidad);
+                            console.log(valorTotal);
+
+                        }) 
+
+                    
                         return(
                         <div className="col-md-12 col-sm-12 divVaciar">
+                            <p className="fuente">Valor total: {valorTotal}$</p>
+                            <p className="fuente">Cantidad de juegos: {cantidadTotal}</p>
                             <button className="btnComprar info" onClick={vaciarCarro}>Vaciar Carro</button>
                         </div>
                         )
@@ -99,4 +119,3 @@ const CartWidget = () =>
 }
 
 export default CartWidget;
-

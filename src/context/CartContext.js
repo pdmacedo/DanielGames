@@ -10,17 +10,6 @@ const CartContext = ({children}) => {
     const adicionaJuego = (producto) => {
 
         isInCart(producto);
-        /*if(producto.cantidad == 0)
-        {
-            console.log("Adiciona valor válido");
-        }
-        else{
-
-            carrito.push(producto);
-            console.log(carrito);
-        }
-
-        return carrito;*/
     }
 
     const eliminarJuego = (id) => {
@@ -78,7 +67,6 @@ const CartContext = ({children}) => {
         {
             carrito.push(producto);
             console.log(carrito);
-            console.log("Entre en el else");
         }
     }
 

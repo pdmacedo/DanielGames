@@ -1,8 +1,11 @@
-import React from "react";
+import React , {useContext} from "react";
 import { Link } from "react-router-dom";
+//import {context} from "../context/CartContext";
 
 const Nav = () =>{
 
+    //const {carrito} = useContext(context);
+    
     return(
     <>
         <ul>
@@ -24,3 +27,20 @@ const Nav = () =>{
 }
 
 export default Nav;
+
+/*
+ {(() => {
+                if(carrito.length != 0)
+                {
+                    return(
+                        <li class="icon" id="carro">
+                            <Link to={"/cart"}>
+                                <div>
+                                    <span className="material-icons">shopping_cart</span>
+                                </div>
+                            </Link>
+                        </li>
+                    )
+                }
+            })()}
+ */
