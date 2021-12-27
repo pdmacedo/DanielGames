@@ -14,7 +14,6 @@ const CartWidget = () =>
 
     const eliminarProducto = (id) =>
     {
-        console.log(id);
         eliminarJuego(id);
         setProductos(carrito);
     }

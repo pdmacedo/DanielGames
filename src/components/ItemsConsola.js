@@ -1,12 +1,40 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
+import { db } from "../ItemCollection"
+import { collection, onSnapshot, query, where } from "firebase/firestore"
 
 const ItemsConsola = () => {
 
     const idConsola = window.location.pathname.split('/')[3];
+    const nombreConsola = window.location.pathname.split('/')[2];
 
     const [consolas, setConsolas] = useState([]);
+    const [lista, setLista] = useState([]);
+    const product = collection(db, "detalleProducto");
+    const filtro = query(product, where('Consolas', '==', `${nombreConsola}`))
+
+    console.log(lista);
+
+    useEffect(()=>
+    {
+        setLista([]);
+
+        onSnapshot(filtro, (snapshot) => {
+            let games = [];
+        
+            snapshot.docs.forEach((doc) =>{
+                console.log(doc);
+                games.push({ ...doc.data()})
+            })
+
+            console.log(games);
+            setLista(games);
+            console.log(nombreConsola);
+        })
+
+    },[nombreConsola]);
+
 
     useEffect(()=>
     {
@@ -17,7 +45,6 @@ const ItemsConsola = () => {
         .then(data =>
         {
             setConsolas(data.results);
-            console.log(data)
         })
         .catch(e => console.log(e));
     },[idConsola]);
