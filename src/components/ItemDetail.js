@@ -36,7 +36,6 @@ const ItemDetails = (juego) => {
         <div className="container">
             <div className="row">
                 <div className="col-md-6 col-sm-12">
-                    <h4>{juego.juego.name}</h4>
                     <img className="imgDetails" src={`${juego.juego.background_image}`} alt="" height="200" width="200" />
                 </div>
 

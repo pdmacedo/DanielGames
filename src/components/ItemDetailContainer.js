@@ -8,19 +8,28 @@ const ItemDetailContainer = () => {
 
     const id = window.location.pathname.split('/')[2];
     const [game, setGame] = useState([]);
+
     const product = collection(db, "detalleProducto");
     const filtro = query(product, where('Id', '==', `${id}`))
-    const [juego, setJuego] = useState([])
-
-    console.log(juego);
+    const [juegoFirestore, setJuegoFirestore] = useState([])
 
     useEffect(()=>
     {
-        setJuego([]);
+        setGame([]);
+
+        fetch(`https://api.rawg.io/api/games/${id}?key=c3bfac0a62404fe694f31380acf2a573`)
+        .then(response => response.json())
+        .then(data =>
+        {
+            setGame(data);
+        })
+        .catch(e => console.log(e));
+
+        setJuegoFirestore([]);
 
         onSnapshot(filtro, (snapshot) => {
            
-            const detailProduct = {nombre:'', precio:'', rating:'', categoria:'', desarrollador:'', consolas:'', stock:''};
+            let detailProduct = {nombre:'', precio:'', rating:'', categoria:'', desarrollador:'', consolas:'', stock:''};
         
             snapshot.docs.forEach((doc) =>{
                 console.log(doc.data())
@@ -34,27 +43,28 @@ const ItemDetailContainer = () => {
             })
 
             console.log(detailProduct);
-            setJuego(detailProduct);
+            setJuegoFirestore(detailProduct);
 
         })
 
     },[id]);
 
-    useEffect(()=>
-    {
-        setGame([]);
-
-        fetch(`https://api.rawg.io/api/games/${id}?key=c3bfac0a62404fe694f31380acf2a573`)
-        .then(response => response.json())
-        .then(data =>
-        {
-            setGame(data);
-        })
-        .catch(e => console.log(e));
-    },[]);
-
     return(
         <>
+        <div className="container">
+            <div className="row">
+                <div className="col-md-6 col-sm-12">
+
+                {juegoFirestore.nombre != '' ? (
+                    <h4>Titulo del Firestore: {juegoFirestore.nombre}</h4>
+                ) : (
+                    <h4>Titulo de la API: {game.name}</h4>
+                )}
+
+                </div>
+            </div>
+        </div>
+
         <ItemDetails juego={game}></ItemDetails>
         </>
     )

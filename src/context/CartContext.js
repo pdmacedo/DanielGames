@@ -22,8 +22,9 @@ const CartContext = ({children}) => {
 
                 if(producto.id == item.id)
                 {
-                    if(item.cantidad < stock && producto.cantidad > 0){
-                    item.cantidad = item.cantidad + producto.cantidad;
+                    if(item.cantidad < stock && producto.cantidad > 0)
+                    {
+                        item.cantidad = item.cantidad + producto.cantidad;
                     }
                     else{
                         console.log("No es posible agregar más del stock disponible");
@@ -45,17 +46,36 @@ const CartContext = ({children}) => {
 
         parseInt(id);
 
-        carrito.map(function (item, index)
+        let newCarrito = [...carrito];
+        newCarrito = newCarrito.filter(function(item) {
+            if(id != item.id)
+            {
+                return item;
+            }
+
+            if(item.cantidad > 1)
+            {
+                item.cantidad = item.cantidad - 1;
+                return item;
+            }
+        });
+
+        setCarrito(newCarrito);
+        /*carrito.map(function (item, index)
         {
             parseInt(item.cantidad);
 
             if(id == item.id)
             {
+                alert(id +" " + item.id);
                 if(item.cantidad == 1)
                 {
-                    const newCarro = carrito.splice(item,1);
-                    setCarrito([newCarro]);
-                    console.log(carrito);
+                    let newCarrito = [...carrito];
+                    newCarrito = newCarrito.filter(function(item2) {
+                        return item2.id != id
+                    });
+                    console.log(newCarrito);
+                    setCarrito(newCarrito);
                 }
             
                 else
@@ -65,7 +85,7 @@ const CartContext = ({children}) => {
                     setCarrito(carrito);
                 }
             }
-        })
+        })*/
     }
 
     const vaciarCarrito = () =>{
