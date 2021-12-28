@@ -85,9 +85,7 @@ const CartWidget = () =>
                     carrito.map(function (n, index)
                         {
                             cantidadTotal = cantidadTotal + n.cantidad;
-                            console.log(cantidadTotal);
                             valorTotal = valorTotal + (n.precio * n.cantidad);
-                            console.log(valorTotal);
 
                         }) 
 

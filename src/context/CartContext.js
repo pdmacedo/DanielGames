@@ -10,13 +10,12 @@ const CartContext = ({children}) => {
 
     const adicionaJuego = (producto) => {
 
-        let resultado = isInCart(producto)
-        console.log(carrito);
-        console.log(resultado);
+        let resultado = isInCart(producto);
+        let newCarrito = [...carrito];
 
         if(resultado == true)
         {
-            carrito.map(function (item, index)
+            newCarrito.map(function (item, index)
             {
                 parseInt(item.cantidad);
 
@@ -36,10 +35,11 @@ const CartContext = ({children}) => {
         else{
             if(producto.cantidad > 0)
             {
-                setCarrito([...carrito, producto]);
-                console.log(carrito);
+                newCarrito = [...newCarrito, producto];
             }
         }
+
+        setCarrito(newCarrito);
     }
 
     const eliminarJuego = (id) => {
