@@ -12,7 +12,7 @@ const CartWidget = () =>
 {   
     const {carrito, eliminarJuego, vaciarCarrito} = useContext(context);
 
-    const[loading, setLoading] = useState("");
+    const[loading, setLoading] = useState(false);
     const[id, setId] = useState("");
     const[nombre, setNombre] = useState("");
     const[telefono, setTelefono] = useState("");
@@ -48,7 +48,7 @@ const CartWidget = () =>
 
     const finalizoCompra = async () =>
     {
-        const valida = validator.isAlpha(nombre) && validator.isEmail(email) && validator.isNumeric(telefono)
+        const valida = validator.isAlpha(nombre) && validator.isEmail(email) && validator.isNumeric(telefono);
 
         if(valida)
         {
@@ -58,7 +58,7 @@ const CartWidget = () =>
             }) 
 
             setLoading(true);
-            
+
             const orden = {
                 productos : carrito,
                 usuario : {
@@ -75,10 +75,12 @@ const CartWidget = () =>
             setId(id);
             setLoading(false);
             vaciarCarrito();
+
+            console.log(referencia)
             toast.success("Su compra " + id + "fue realizada con éxito.");
         }
         else{
-            toast.warning("Sus datos son inválidos.")
+            toast.error("Sus datos son inválidos.")
         }
     }
 
@@ -162,11 +164,14 @@ const CartWidget = () =>
                             <div>
                                 <label>Nombre</label>
                                 <input type="text" onChange={handleNombre} value={nombre}/>
+                                <br />
                                 <label>Email</label>
                                 <input type="text" onChange={handleEmail} value={email}/>
+                                <br />
                                 <label>Teléfono</label>
                                 <input type="text" onChange={handleTelefono} value={telefono}/>
                             </div>
+                            <br />
                             <button className="btnComprar info" onClick={finalizoCompra}>Finalizar compra</button>
                             <button className="btnComprar info" onClick={vaciarCarro}>Vaciar Carro</button>
 
@@ -179,6 +184,7 @@ const CartWidget = () =>
                             <div className="centrado2">
                                 <p className="fuente2">Agregue productos al carrito</p>
                                 <Link to={"/"}><button className="btnComprar info">Ver juegos</button></Link>
+                                {id && <p className="fuente2">Gracias por su compra {nombre}</p>}
                             </div>
                         )
                     }

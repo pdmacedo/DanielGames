@@ -8,7 +8,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemsConsola from "./components/ItemsConsola";
 import CartContext from "./context/CartContext";
 import CartWidget from "./components/CartWidget";
-import { ToastContainer } from "react-bootstrap";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
 

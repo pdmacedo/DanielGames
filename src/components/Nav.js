@@ -34,20 +34,3 @@ const Nav = () =>{
 }
 
 export default Nav;
-
-/*
- {(() => {
-                if(carrito.length != 0)
-                {
-                    return(
-                        <li class="icon" id="carro">
-                            <Link to={"/cart"}>
-                                <div>
-                                    <span className="material-icons">shopping_cart</span>
-                                </div>
-                            </Link>
-                        </li>
-                    )
-                }
-            })()}
- */

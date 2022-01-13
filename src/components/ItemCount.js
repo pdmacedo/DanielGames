@@ -1,4 +1,5 @@
 import {useState} from "react";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -12,7 +13,7 @@ const ItemCount = ({stock , agregaFinal}) => {
     {
       if(contador>=stock)
       {
-        console.log("Stock insuficiente para la cantidad.");
+        toast.warning("Stock insuficiente para la cantidad.");
       }
       else
       {
@@ -55,6 +56,8 @@ const ItemCount = ({stock , agregaFinal}) => {
         <button className="btnComprar info" onClick={aumentaContador}>+</button>
         <button className="btnComprar info" onClick={reduceContador}>-</button>
         <button className="btnComprar info" onClick={agregarCarro}>Agregar</button>
+        <br />
+        <Link to={"/"}><button className="btnComprar info">Ver otros juegos</button></Link>
       </div>
       );
   }
