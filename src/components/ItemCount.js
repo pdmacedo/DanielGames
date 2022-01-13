@@ -1,4 +1,6 @@
 import {useState} from "react";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const ItemCount = ({stock , agregaFinal}) => {
 
@@ -35,12 +37,12 @@ const ItemCount = ({stock , agregaFinal}) => {
     {
       if(contador >= 1 && contador<= stock)
       {
-        console.log("Elemento agregado con exito.");
+        toast.success("Elemento agregado con exito.");
       }
 
       else
       {
-        console.log("Selecciona un elemento para agregar.");
+        toast.warning("Selecciona un elemento para agregar.");
       }
 
       const valorFinal = contador;

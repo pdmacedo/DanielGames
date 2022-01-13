@@ -8,6 +8,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemsConsola from "./components/ItemsConsola";
 import CartContext from "./context/CartContext";
 import CartWidget from "./components/CartWidget";
+import { ToastContainer } from "react-bootstrap";
 
 const App = () => {
 
@@ -16,6 +17,7 @@ const App = () => {
       <Header/>
 	  <CartContext>
 		<Nav/>
+		<ToastContainer/>
 		<Routes>
 
 			<Route path="/" element={<ItemListContainer/>}/>

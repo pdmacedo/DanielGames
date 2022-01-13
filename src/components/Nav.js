@@ -1,10 +1,17 @@
 import React , {useContext} from "react";
 import { Link } from "react-router-dom";
-//import {context} from "../context/CartContext";
+import {context} from "../context/CartContext";
 
 const Nav = () =>{
 
-    //const {carrito} = useContext(context);
+    const {carrito} = useContext(context);
+
+    let cantidadTotal = 0;
+
+    carrito.map(function (n, index)
+                    {
+                        cantidadTotal = cantidadTotal + n.cantidad;
+                    }) 
     
     return(
     <>
@@ -17,7 +24,7 @@ const Nav = () =>{
             <li class="icon" id="carro">
                 <Link to={"/cart"}>
                     <div>
-                        <span className="material-icons">shopping_cart</span>
+                        {cantidadTotal}<span className="material-icons">shopping_cart</span>
                     </div>
                 </Link>
             </li>
