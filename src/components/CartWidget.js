@@ -92,7 +92,7 @@ const CartWidget = () =>
                     
                         return(
                         <div className="col-md-12 col-sm-12 divVaciar">
-                            <p className="fuente">Valor total: {valorTotal}$</p>
+                            <p className="fuente">Precio total: {valorTotal}$</p>
                             <p className="fuente">Cantidad de juegos: {cantidadTotal}</p>
                             <button className="btnComprar info" onClick={vaciarCarro}>Vaciar Carro</button>
                         </div>
