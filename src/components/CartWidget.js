@@ -48,7 +48,7 @@ const CartWidget = () =>
 
     const finalizoCompra = async () =>
     {
-        const valida = validator.isAlpha(nombre) && validator.isEmail(email) && validator.isNumeric(telefono);
+        const valida = validator.isAlphanumeric(nombre) && validator.isEmail(email) && validator.isNumeric(telefono);
 
         if(valida)
         {
@@ -91,6 +91,10 @@ const CartWidget = () =>
         setProductos(carrito);
 
     },[]);
+
+    /*
+    
+    */
 
     return(
         
@@ -161,16 +165,27 @@ const CartWidget = () =>
                             <p className="fuente">Precio total: {valorTotal}$</p>
                             <p className="fuente">Cantidad de juegos: {cantidadTotal}</p>
                             {loading && <p className="fuente">Cargando...</p> }
-                            <div>
-                                <label>Nombre</label>
-                                <input type="text" onChange={handleNombre} value={nombre}/>
+
+                            <div class="form__group field">
+                                <label for="inp" class="inp">
+                                    <span class="label">Nombre</span>
+                                    <input type="text" placeholder="&nbsp;" onChange={handleNombre} value={nombre} validator/>
+                                    <span class="focus-bg"></span>
+                                </label>
                                 <br />
-                                <label>Email</label>
-                                <input type="text" onChange={handleEmail} value={email}/>
+                                <label for="inp" class="inp">
+                                    <span class="label">Email</span>
+                                    <input type="text" placeholder="&nbsp;" onChange={handleEmail} value={email}/>
+                                    <span class="focus-bg"></span>
+                                </label>
                                 <br />
-                                <label>Teléfono</label>
-                                <input type="text" onChange={handleTelefono} value={telefono}/>
+                                <label for="inp" class="inp">
+                                    <span class="label">Teléfono</span>
+                                    <input type="text" placeholder="&nbsp;" onChange={handleTelefono} value={telefono}/>
+                                    <span class="focus-bg"></span>
+                                </label>
                             </div>
+
                             <br />
                             <button className="btnComprar info" onClick={finalizoCompra}>Finalizar compra</button>
                             <button className="btnComprar info" onClick={vaciarCarro}>Vaciar Carro</button>
