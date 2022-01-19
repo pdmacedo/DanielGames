@@ -26,9 +26,6 @@ const CartContext = ({children}) => {
                     {
                         item.cantidad = item.cantidad + producto.cantidad;
                     }
-                    else{
-                        console.log("No es posible agregar más del stock disponible");
-                    }
                 }
             })
         }
@@ -62,36 +59,10 @@ const CartContext = ({children}) => {
         });
 
         setCarrito(newCarrito);
-        /*carrito.map(function (item, index)
-        {
-            parseInt(item.cantidad);
-
-            if(id == item.id)
-            {
-                alert(id +" " + item.id);
-                if(item.cantidad == 1)
-                {
-                    let newCarrito = [...carrito];
-                    newCarrito = newCarrito.filter(function(item2) {
-                        return item2.id != id
-                    });
-                    console.log(newCarrito);
-                    setCarrito(newCarrito);
-                }
-            
-                else
-                {
-                    item.cantidad = item.cantidad - 1;
-                    console.log(item.cantidad);
-                    setCarrito(carrito);
-                }
-            }
-        })*/
     }
 
     const vaciarCarrito = () =>{
         setCarrito([]);
-        console.log(carrito);
     }
 
     const isInCart = (producto) => {

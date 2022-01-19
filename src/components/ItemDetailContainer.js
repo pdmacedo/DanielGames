@@ -42,7 +42,6 @@ const ItemDetailContainer = () => {
                 detailProduct.stock=(doc.data().Stock);
             })
 
-            console.log(detailProduct);
             setJuegoFirestore(detailProduct);
 
         })
@@ -55,10 +54,13 @@ const ItemDetailContainer = () => {
             <div className="row">
                 <div className="col-md-6 col-sm-12">
 
-                {juegoFirestore.nombre != '' ? (
-                    <h4>Titulo del Firestore: {juegoFirestore.nombre}</h4>
-                ) : (
-                    <h4>Titulo de la API: {game.name}</h4>
+                {juegoFirestore.nombre != '' ? 
+                (
+                    <h4>{juegoFirestore.nombre}</h4>
+                ) 
+                : 
+                (
+                    <h4>{game.name}</h4>
                 )}
 
                 </div>

@@ -7,6 +7,7 @@ import { addDoc, collection } from "firebase/firestore";
 import validator from "validator";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import $ from 'jquery';
 
 const CartWidget = () =>
 {   
@@ -46,13 +47,9 @@ const CartWidget = () =>
 
     let precioFinal = 0;
 
-    const finalizoCompra = async () =>
+    const guardaCompra = async () =>
     {
-        const valida = validator.isAlphanumeric(nombre) && validator.isEmail(email) && validator.isNumeric(telefono);
-
-        if(valida)
-        {
-            carrito.map(function (n, index)
+        carrito.map(function (n, index)
             {
                 precioFinal = precioFinal + (n.precio * n.cantidad);
             }) 
@@ -75,12 +72,32 @@ const CartWidget = () =>
             setId(id);
             setLoading(false);
             vaciarCarrito();
+    }
 
-            console.log(referencia)
-            toast.success("Su compra " + id + "fue realizada con éxito.");
+    const finalizoCompra = async () =>
+    {
+        const validaNombre = validator.isAlphanumeric(nombre); 
+        const validaEmail = validator.isEmail(email);
+        const validaTlfn = validator.isNumeric(telefono);
+
+        if(validaNombre)
+        {
+            if(validaEmail)
+            {
+                if (validaTlfn) {
+                    guardaCompra();
+                    toast.success("Su compra " + id + "fue realizada con éxito.");
+                }
+                else{
+                    toast.error("Hubo un problema. Verifique su número de teléfono.")
+                }
+            }
+            else{
+                toast.error("Hubo un problema. Verifique su email.");
+            }
         }
         else{
-            toast.error("Sus datos son inválidos.")
+            toast.error("Hubo un problema. Verifique su nombre.");
         }
     }
 
@@ -92,9 +109,11 @@ const CartWidget = () =>
 
     },[]);
 
-    /*
-    
-    */
+    $(function() {
+        setTimeout(function() {
+            $("#paraBorrar").fadeOut(1500);
+        },3000);
+    });
 
     return(
         
@@ -199,7 +218,7 @@ const CartWidget = () =>
                             <div className="centrado2">
                                 <p className="fuente2">Agregue productos al carrito</p>
                                 <Link to={"/"}><button className="btnComprar info">Ver juegos</button></Link>
-                                {id && <p className="fuente2">Gracias por su compra {nombre}</p>}
+                                {id && <p className="fuente2" id="paraBorrar">Gracias por su compra {nombre}</p>}
                             </div>
                         )
                     }

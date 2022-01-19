@@ -24,13 +24,10 @@ const ItemsConsola = () => {
             let games = [];
         
             snapshot.docs.forEach((doc) =>{
-                console.log(doc);
                 games.push({ ...doc.data()})
             })
 
-            console.log(games);
             setLista(games);
-            console.log(nombreConsola);
         })
 
     },[nombreConsola]);
@@ -53,7 +50,6 @@ const ItemsConsola = () => {
         <>
             {
                 consolas.length ?
-                //titulo de la consola
                 <ItemList productos={consolas}></ItemList>
 
                 :

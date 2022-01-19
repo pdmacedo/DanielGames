@@ -1,7 +1,7 @@
-import {useState, useEffect} from "react";
+import { useContext, useState, useEffect} from "react";
 import ItemList from "./ItemList";
-import { db } from "../ItemCollection"
-import { collection, getDocs } from "firebase/firestore"
+import { db } from "../ItemCollection";
+import { collection, getDocs } from "firebase/firestore";
 
 const ItemListContainer = (saludo) => {
 
@@ -14,7 +14,6 @@ const ItemListContainer = (saludo) => {
             setProductos([]);
 
             const product = collection(db, "productos");
-            //ESTA ES LA CONSULTA.
             const promesa = getDocs(product);
 
             promesa.then((resultado) =>{
@@ -24,8 +23,6 @@ const ItemListContainer = (saludo) => {
                 resultado.forEach(doc=>{
                     productArray.push(doc.data());
                 })
-
-                console.log(productArray);
             })
 
             .catch(()=>{

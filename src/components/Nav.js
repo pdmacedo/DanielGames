@@ -9,9 +9,9 @@ const Nav = () =>{
     let cantidadTotal = 0;
 
     carrito.map(function (n, index)
-                    {
-                        cantidadTotal = cantidadTotal + n.cantidad;
-                    }) 
+    {
+        cantidadTotal = cantidadTotal + n.cantidad;
+    }) 
     
     return(
     <>
@@ -23,11 +23,27 @@ const Nav = () =>{
             <li><Link to={"/plataforma/PC/4"}>PC</Link></li>
             <li class="icon" id="carro">
                 <Link to={"/cart"}>
-                    <div>
-                        {cantidadTotal}<span className="material-icons">shopping_cart</span>
-                    </div>
+                    {(() => {
+                        if(cantidadTotal == 0)
+                        {
+                            return(
+                            <div>
+                                <span className="material-icons">shopping_cart</span> 
+                            </div>     
+                            )
+                        }
+
+                        else 
+                        {
+                            return(
+                            <div>
+                                {cantidadTotal} <span className="material-icons">shopping_cart</span>
+                            </div>     
+                            )
+                        }
+                    })()}
                 </Link>
-            </li>
+            </li> 
         </ul>
     </>
     );
