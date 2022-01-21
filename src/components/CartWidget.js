@@ -19,6 +19,7 @@ const CartWidget = () =>
     const[apellido, setApellido] = useState("");
     const[telefono, setTelefono] = useState("");
     const[email, setEmail] = useState("");
+    const[repemail, setRepemail] = useState("");
 
     const vaciarCarro = () =>
     {
@@ -44,6 +45,11 @@ const CartWidget = () =>
     const handleEmail = (e) =>{
         const valor = e.target.value;
         setEmail(valor);
+    }
+
+    const handleRepemail = (e) =>{
+        const valor = e.target.value;
+        setRepemail(valor);
     }
 
     const handleTelefono = (e) =>{
@@ -77,15 +83,17 @@ const CartWidget = () =>
             const referencia = await addDoc(ordenesCollection, orden);
             const id = referencia.id;
             setId(id);
+            toast.success("Su compra " + id + " fue realizada con éxito.");
             setLoading(false);
             vaciarCarrito();
     }
 
     const finalizoCompra = async () =>
     {
-        const validaNombre = validator.isAlphanumeric(nombre);
-        const validaApellido = validator.isAlphanumeric(apellido); 
+        const validaNombre = validator.isAlpha(nombre);
+        const validaApellido = validator.isAlpha(apellido); 
         const validaEmail = validator.isEmail(email);
+        const validaRepemail = validator.isEmail(repemail);
         const validaTlfn = validator.isNumeric(telefono);
 
         if(validaNombre)
@@ -94,12 +102,23 @@ const CartWidget = () =>
             {
                 if(validaEmail)
                 {
-                    if (validaTlfn) {
-                        guardaCompra();
-                        toast.success("Su compra " + id + "fue realizada con éxito.");
+                    if(validaRepemail)
+                    {
+                        if(email == repemail)
+                        {
+                            if (validaTlfn) {
+                                guardaCompra();
+                            }
+                            else{
+                                toast.error("Hubo un problema. Verifique su número de teléfono.")
+                            }
+                        }
+                        else{
+                            toast.error("La confirmación de email es inválida.");
+                        }
                     }
                     else{
-                        toast.error("Hubo un problema. Verifique su número de teléfono.")
+                        toast.error("Hubo un problema. Verifique su email en la confirmación de email.");
                     }
                 }
                 else{
@@ -125,7 +144,7 @@ const CartWidget = () =>
 
     $(function() {
         setTimeout(function() {
-            $("#paraBorrar").fadeOut(1500);
+            $("#paraBorrar").fadeOut(3000);
         },6000);
     });
 
@@ -219,6 +238,12 @@ const CartWidget = () =>
                                 </label>
                                 <br />
                                 <label for="inp" class="inp">
+                                    <span class="label">Confirme email</span>
+                                    <input type="text" placeholder="&nbsp;" onChange={handleRepemail} value={repemail}/>
+                                    <span class="focus-bg"></span>
+                                </label>
+                                <br />
+                                <label for="inp" class="inp">
                                     <span class="label">Teléfono</span>
                                     <input type="text" placeholder="&nbsp;" onChange={handleTelefono} value={telefono}/>
                                     <span class="focus-bg"></span>
@@ -236,7 +261,7 @@ const CartWidget = () =>
                     {
                         return(
                             <div className="centrado2">
-                                <p className="fuente2">Agregue productos al carrito</p>
+                                <p className="fuente2 centrado2">Agregue productos al carrito</p>
                                 <Link to={"/"}><button className="btnComprar info">Ver juegos</button></Link>
                                 {id && <p className="fuente2" id="paraBorrar">Gracias por su compra {nombre}</p>}
                             </div>

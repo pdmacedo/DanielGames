@@ -54,7 +54,7 @@ const ItemsConsola = () => {
 
                 :
 
-                <p>Loading...</p>
+                <h2 id="h2Cargando">Cargando...</h2>
             }  
         </>  
     )

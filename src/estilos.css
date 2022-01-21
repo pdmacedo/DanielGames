@@ -192,6 +192,7 @@ h3{
 
 .centrado2
 {
+  margin-top: 200px;
   text-align: center;
 }
 
@@ -310,3 +311,10 @@ input:focus.focus-bg{
 }
 
 /*FIN DEL FORM DE CARDWIDGET*/
+
+/*h2 DE CARGANDO*/
+#h2Cargando
+{
+  margin-top: 200px;
+  text-align: center;
+}

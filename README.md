@@ -46,3 +46,5 @@ Firebase fue adicionado para poder guardar los valores de las compras en la fire
 
 * El CartContext fue quizás la parte que en principio me costó entender bien como utilizarlo, pero una vez que conseguí empezar a implementarlo fui viendo un poco la lógica de esto y me parece que fue bien utilizada.
 
+* En la validación de datos de formulário en el CartWidget.js quedó un poco piramide ese uso de if, pero quise ser más específico en cuanto a donde estaría el error y no generalizar todo en un solo if con los && y luego no poder decir donde estaba el error.
+
