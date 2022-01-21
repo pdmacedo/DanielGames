@@ -16,6 +16,7 @@ const CartWidget = () =>
     const[loading, setLoading] = useState(false);
     const[id, setId] = useState("");
     const[nombre, setNombre] = useState("");
+    const[apellido, setApellido] = useState("");
     const[telefono, setTelefono] = useState("");
     const[email, setEmail] = useState("");
 
@@ -33,6 +34,11 @@ const CartWidget = () =>
     const handleNombre = (e) =>{
         const valor = e.target.value;
         setNombre(valor);
+    }
+
+    const handleApellido = (e) =>{
+        const valor = e.target.value;
+        setApellido(valor);
     }
 
     const handleEmail = (e) =>{
@@ -60,6 +66,7 @@ const CartWidget = () =>
                 productos : carrito,
                 usuario : {
                     nombre,
+                    apellido,
                     email,
                     telefono
                 },
@@ -76,25 +83,32 @@ const CartWidget = () =>
 
     const finalizoCompra = async () =>
     {
-        const validaNombre = validator.isAlphanumeric(nombre); 
+        const validaNombre = validator.isAlphanumeric(nombre);
+        const validaApellido = validator.isAlphanumeric(apellido); 
         const validaEmail = validator.isEmail(email);
         const validaTlfn = validator.isNumeric(telefono);
 
         if(validaNombre)
         {
-            if(validaEmail)
+            if(validaApellido)
             {
-                if (validaTlfn) {
-                    guardaCompra();
-                    toast.success("Su compra " + id + "fue realizada con éxito.");
+                if(validaEmail)
+                {
+                    if (validaTlfn) {
+                        guardaCompra();
+                        toast.success("Su compra " + id + "fue realizada con éxito.");
+                    }
+                    else{
+                        toast.error("Hubo un problema. Verifique su número de teléfono.")
+                    }
                 }
                 else{
-                    toast.error("Hubo un problema. Verifique su número de teléfono.")
+                    toast.error("Hubo un problema. Verifique su email.");
                 }
             }
             else{
-                toast.error("Hubo un problema. Verifique su email.");
-            }
+                toast.error("Hubo un problema. Verifique su apellido.");
+            } 
         }
         else{
             toast.error("Hubo un problema. Verifique su nombre.");
@@ -112,7 +126,7 @@ const CartWidget = () =>
     $(function() {
         setTimeout(function() {
             $("#paraBorrar").fadeOut(1500);
-        },3000);
+        },6000);
     });
 
     return(
@@ -188,7 +202,13 @@ const CartWidget = () =>
                             <div class="form__group field">
                                 <label for="inp" class="inp">
                                     <span class="label">Nombre</span>
-                                    <input type="text" placeholder="&nbsp;" onChange={handleNombre} value={nombre} validator/>
+                                    <input type="text" placeholder="&nbsp;" onChange={handleNombre} value={nombre}/>
+                                    <span class="focus-bg"></span>
+                                </label>
+                                <br />
+                                <label for="inp" class="inp">
+                                    <span class="label">Apellido</span>
+                                    <input type="text" placeholder="&nbsp;" onChange={handleApellido} value={apellido}/>
                                     <span class="focus-bg"></span>
                                 </label>
                                 <br />

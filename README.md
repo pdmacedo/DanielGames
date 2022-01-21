@@ -1,70 +1,48 @@
-# Proyecto final Daniel Games
+# Proyecto final 'Daniel Games'
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+En este proyecto podrán encontrar un e-commerce dedicado a la venta de videojuegos. Esta les ofrece un menú principal con toda la variedad de juegos y de todas las consolas, si quieren saber información sobre un juego en específico podrán darle a la opción de 'Ver más' y encontrar información como Rating, Precio o también poder adicionarlo a su carro de compras. Para quienes van enfocados en adquirir un juego de una consola en específico contarán con un menú de nuestras consolas disponibles. Por último tienen la opción de ver su carro de compras y ahí detallado todo lo que se agregó junto con el precio total y la cantidad de items. De ser necesario podrá eliminar elementos que se hayan agregado al carro anteriormente, así como vaciar el carro por completo o si lo desea finalizar la compra rellenando el pequeno formulário con sus datos.  (https://github.com/pdmacedo/DanielGames).
 
-## Available Scripts
+## Daniel Macedo como desarrollador
 
-In the project directory, you can run:
+Llevo estudiando programación hace ya algun tiempo, fue mi opción desde la universidad la cual tuve que dejar por salir de mi país y emigrar, pero ahora he retomado este mundo estudiando herramientas como C#, CSS, JavaScript, HTML, SqlServer, React y futuramente Node JS. Ya con todos estos conocimientos espero poder encontrar mi primer empleo en esta área de programación y continuar creciendo más.
 
-### `npm start`
+## Librerías que utilicé en el proyecto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `React`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+La librería React de JavaScript es la base de este proyecto ya que con ella fue posible la creación de interfaces interactivas de una forma más sencilla. Es la encargada de poder renderizar nuestros componentes de una forma más eficiente cuando sus datos cambian y así obtener un código más fácil de leer.
 
-### `npm test`
+### `react-router-dom`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Esta librería fue utilizada para poder tener navegación entres los componentes de la app y así poder usar sus hooks, como también poder navegar entre ellos enviando valores como parámetros o también estados.
 
-### `npm run build`
+### `Bootstrap`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+La mayoría de la maquetación de la app fue toda utilizada desde Bootstrap apoyándome más que todo de las div con clase container o row, así como también de tablas.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `Validator`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Utilizada en el formulário de 'Finalizar compra' para poder confirmar los inputs de nombre, apellido, teléfono y email, para así minimizar errores de guardado en la firestore.
 
-### `npm run eject`
+### `Toastify`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Esta librería es utilizada en la sección de detalle del producto (ItemCount.js), una vez que se ultrapasa el stock disponible (5) o una vez que se adiciona el juego al carro se le adicionó un toast para alertar ambas acciones, al igual que en el formulário de finalizar compra, cuando hay algún dato inválido o la compra se ejecuta con éxito también sale un toast.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `jQuery`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Esta libreria solo fue utilizada (CartWidget.js) para poder realizar un efecto de fadeOut en el mensaje de agradecimiento posterior a la compra, el cual desaparece pasado 6 segundos.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### `Firebase`
 
-## Learn More
+Firebase fue adicionado para poder guardar los valores de las compras en la firestore, estos adicionarían los productos comprados junto con los datos del formulário sobre el cliente. También fue útil para buscar información a la firestore y filtrarla como herramientas como query, where, entre otras.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Comentarios sobre el código
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* En el componente itemDetailContainer entre la linea 57 a 64 utilicé un condicionante sobre si traer el nombre del juego de la firestore o desde la API, si este era encontrado en la firestore me lo traía desde ahí, si no, lo buscaba de la API. Por qué lo hice de esta forma? Porque la lista de juegos era muy extensa para adicionarlas todas en la firestore y le pregunté a Franco si podía realizarlo así y me comentó que pensaba que si, pero lo consultaría contigo, pero nunca me dio un feedback sobre esto y me pareció que de igual forma estaba bien aplicado y por eso decidí dejarlo así. 
 
-### Code Splitting
+* La única cosa que le dejé comentarios fue a la hoja de estilos.css para poder diferenciar en que parte de la app estaban esos estilos adicionados y así poder guiarse bien cuando un cambio fuese necesário.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* Otro detalle que podría comentar es la condición que puse en el Nav.js para cuando el carro no tuviese productos no salir el número cero, si no solo el icon, algo mas limpio a la vista.
 
-### Analyzing the Bundle Size
+* El CartContext fue quizás la parte que en principio me costó entender bien como utilizarlo, pero una vez que conseguí empezar a implementarlo fui viendo un poco la lógica de esto y me parece que fue bien utilizada.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
